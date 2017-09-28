@@ -1,0 +1,13 @@
+ch\heigvd\amt\bootcamp\model\Beer.class
+ch\heigvd\amt\bootcamp\web\filters\SecurityFilter.class
+ch\heigvd\amt\bootcamp\services\BeersDataStore.class
+ch\heigvd\amt\bootcamp\web\controllers\BeersServlet.class
+ch\heigvd\amt\bootcamp\web\controllers\ConcurrencyServlet.class
+ch\heigvd\amt\bootcamp\web\controllers\HomeServlet.class
+ch\heigvd\amt\bootcamp\services\BeersManager.class
+ch\heigvd\amt\bootcamp\services\BeersManagerLocal.class
+ch\heigvd\amt\bootcamp\web\controllers\AboutServlet.class
+ch\heigvd\amt\bootcamp\services\BeersDataStoreLocal.class
+ch\heigvd\amt\bootcamp\web\controllers\AuthenticationServlet.class
+ch\heigvd\amt\bootcamp\model\Person.class
+ch\heigvd\amt\bootcamp\web\controllers\UglyServlet.class
