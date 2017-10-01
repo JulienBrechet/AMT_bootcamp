@@ -17,6 +17,10 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.BeersServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ConfigurationServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ConfigurationServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.HomeServlet</servlet-class>
     </servlet>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>BeersServlet</servlet-name>
         <url-pattern>/pages/beers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfigurationServlet</servlet-name>
+        <url-pattern>/pages/configuration</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>

@@ -14,7 +14,20 @@
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
-
+    
+   <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      th, td {
+          padding: 5px;
+      }
+      th {
+          text-align: left;
+      }
+   </style>
+     
   </head>
   <body>
     <div class="container">
@@ -37,6 +50,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="pages/beers">Beers</a></li>
+                  <li><a href="pages/configuration">Configuration</a></li>
                   <!--
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Nav header</li>

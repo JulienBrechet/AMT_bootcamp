@@ -6,25 +6,25 @@ package ch.heigvd.amt.bootcamp.model;
  * @author Adrien Marco
  */
 public class Person {
-   private String name;
-   private String surname;
-   private String favouriteAnimal;
+   private String firstName;
+   private String lastName;
+   private String street;
 
-   public Person(String name, String surname, String favouriteAnimal) {
-      this.name = name;
-      this.surname = surname;
-      this.favouriteAnimal = favouriteAnimal;
+   public Person(String firstName, String lastName, String street) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.street = street;
    }
 
-   public String getName() {
-      return name;
+   public String getfirstName() {
+      return firstName;
    }
 
-   public String getSurname() {
-      return surname;
+   public String getlastName() {
+      return lastName;
    }
 
-   public String getFavouriteAnimal() {
-      return favouriteAnimal;
+   public String getStreet() {
+      return street;
    }
 }
