@@ -51,6 +51,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="pages/beers">Beers</a></li>
                   <li><a href="pages/configuration">Configuration</a></li>
+                  <li><a href="pages/manage">Manage</a></li>
                   <!--
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Nav header</li>

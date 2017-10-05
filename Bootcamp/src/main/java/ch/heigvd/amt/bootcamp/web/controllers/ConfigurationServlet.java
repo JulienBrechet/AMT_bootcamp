@@ -27,9 +27,9 @@ public class ConfigurationServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
-    Object model = configurationManager.getAllPeople();
+    //Object model = configurationManager.getAllPeople();
     
-    request.setAttribute("people", model);
+    //request.setAttribute("people", model);
     
     request.getRequestDispatcher("/WEB-INF/pages/configuration.jsp").forward(request, response);
   }

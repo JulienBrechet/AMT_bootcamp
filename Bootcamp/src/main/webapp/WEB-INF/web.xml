@@ -21,6 +21,14 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ConfigurationServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ManageServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ManageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WritingServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.WritingServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.HomeServlet</servlet-class>
     </servlet>
@@ -35,6 +43,14 @@
     <servlet-mapping>
         <servlet-name>ConfigurationServlet</servlet-name>
         <url-pattern>/pages/configuration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageServlet</servlet-name>
+        <url-pattern>/pages/manage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WritingServlet</servlet-name>
+        <url-pattern>/pages/write</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
