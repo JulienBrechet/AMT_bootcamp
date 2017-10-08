@@ -13,10 +13,6 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.AuthenticationServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BeersServlet</servlet-name>
-        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.BeersServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ConfigurationServlet</servlet-name>
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ConfigurationServlet</servlet-class>
     </servlet>
@@ -25,8 +21,8 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ManageServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>WritingServlet</servlet-name>
-        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.WritingServlet</servlet-class>
+        <servlet-name>CreatePersonServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.CreatePersonServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
@@ -37,10 +33,6 @@
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>BeersServlet</servlet-name>
-        <url-pattern>/pages/beers</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ConfigurationServlet</servlet-name>
         <url-pattern>/pages/configuration</url-pattern>
     </servlet-mapping>
@@ -49,8 +41,8 @@
         <url-pattern>/pages/manage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>WritingServlet</servlet-name>
-        <url-pattern>/pages/write</url-pattern>
+        <servlet-name>CreatePersonServlet</servlet-name>
+        <url-pattern>/pages/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>

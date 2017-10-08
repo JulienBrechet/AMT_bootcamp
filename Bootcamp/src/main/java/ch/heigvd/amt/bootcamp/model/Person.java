@@ -6,11 +6,13 @@ package ch.heigvd.amt.bootcamp.model;
  * @author Adrien Marco
  */
 public class Person {
+   private long  id;
    private String firstName;
    private String lastName;
    private String street;
 
-   public Person(String firstName, String lastName, String street) {
+   public Person(long id, String firstName, String lastName, String street) {
+      this.id = id;
       this.firstName = firstName;
       this.lastName = lastName;
       this.street = street;
@@ -26,5 +28,9 @@ public class Person {
 
    public String getStreet() {
       return street;
+   }
+   
+   public long getId() {
+      return id;
    }
 }
