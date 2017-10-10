@@ -8,7 +8,7 @@
   <li> 
    <table style="width:100%">
       <tr>
-         <td style="width:80%">${people.id}, ${people.firstName}, ${people.lastName}, ${people.street}</td>
+         <td style="width:80%"> ${people.firstName}, ${people.lastName}, ${people.street}</td>
          <td style="width:10%">
             <form action="">
                <input type="submit" value = "edit">

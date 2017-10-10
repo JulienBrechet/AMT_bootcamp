@@ -42,6 +42,8 @@ public class ConfigurationServlet extends HttpServlet {
             */
             long quantity = Integer.parseInt(request.getParameter("quantity"));
 
+            //we first clear the list of random people
+            generateRandomPeople.destroyPeople();
             //we generate random people
             generateRandomPeople.buildPeople(quantity);
             //we get the list of random people

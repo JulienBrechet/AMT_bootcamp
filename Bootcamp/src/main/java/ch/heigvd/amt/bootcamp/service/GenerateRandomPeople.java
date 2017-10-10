@@ -48,4 +48,11 @@ public GenerateRandomPeople() {
   public List<Person> getPeople() {
     return new LinkedList<>(catalog);
   }
+  
+  
+  @Override
+  public void destroyPeople() {
+    catalog.clear();
+  }
+  
 }

@@ -25,7 +25,7 @@ public class PeopleWriteManager implements PeopleWriteManagerLocal {
      
      //we first delete all the table
      try {
-          try (Connection connection = dataSource.getConnection();PreparedStatement pstmt = connection.prepareStatement("DELETE * FROM people");) {
+          try (Connection connection = dataSource.getConnection();PreparedStatement pstmt = connection.prepareStatement("DELETE FROM people");) {
             pstmt.executeUpdate();
             pstmt.close();
            }
@@ -42,7 +42,7 @@ public class PeopleWriteManager implements PeopleWriteManagerLocal {
         String street = peopleToWrite.get(i).getStreet();
         
          try {
-           try (Connection connection = dataSource.getConnection();PreparedStatement pstmt = connection.prepareStatement("INSERT INTO people ('first_name', 'last_name', 'street') VALUES ('"+firstName+"', '"+lastName+"', '"+street+"')");) {
+           try (Connection connection = dataSource.getConnection();PreparedStatement pstmt = connection.prepareStatement("INSERT INTO people (first_name, last_name, street) VALUES ('"+firstName+"', '"+lastName+"', '"+street+"')");) {
              pstmt.executeUpdate();
              pstmt.close();
            }

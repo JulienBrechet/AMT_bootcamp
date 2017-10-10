@@ -19,4 +19,6 @@ public interface GenerateRandomPeopleLocal {
   List<Person> getPeople();
   
   void buildPeople(long nbPeople);
+  
+  void destroyPeople();
 }
