@@ -25,6 +25,10 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.DeletePersonServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>EditPersonServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.EditPersonServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>HomeServlet</servlet-name>
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.HomeServlet</servlet-class>
     </servlet>
@@ -43,6 +47,10 @@
     <servlet-mapping>
         <servlet-name>DeletePersonServlet</servlet-name>
         <url-pattern>/pages/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditPersonServlet</servlet-name>
+        <url-pattern>/pages/edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
