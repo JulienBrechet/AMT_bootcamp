@@ -31,7 +31,7 @@ public GenerateRandomPeople() {
   @Override
   public void buildPeople(long nbPeople) {
        
-   for(int i = 0; i < nbPeople; ++i){
+   for(int i = 1; i <= nbPeople; ++i){
 
       Faker faker = new Faker();
       long id = i;

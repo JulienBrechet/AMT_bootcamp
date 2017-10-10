@@ -48,9 +48,11 @@ public class ConfigurationServlet extends HttpServlet {
             List<Person> peopleToWrite = generateRandomPeople.getPeople();
             //we write the people in DB
             peopleWriteManager.writePeople(peopleToWrite);
-
+            
             //redirect to ManageServelet
-            response.sendRedirect("/pages/manage");
+            String targetUrl = "/pages/manage";
+            targetUrl = request.getContextPath() + targetUrl;
+            response.sendRedirect(targetUrl);
 
 
       }catch(NumberFormatException ex){

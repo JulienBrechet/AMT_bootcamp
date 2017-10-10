@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @Stateless
 public class PeopleShowManager implements PeopleShowManagerLocal {
   
- @Resource(lookup = "java:/jdbc/random_people")
+ @Resource(lookup = "jdbc/random_people")
   private DataSource dataSource;
 
   @Override

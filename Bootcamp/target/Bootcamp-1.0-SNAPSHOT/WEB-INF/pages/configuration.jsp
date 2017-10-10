@@ -10,4 +10,6 @@
   <input type="submit" value = "build database">
 </form>
 
+<h3 style="color:red;">Attention! The DB will be overwritten by creating new random people</h3>
+
 <%@include file="includes/footer.jsp" %>
