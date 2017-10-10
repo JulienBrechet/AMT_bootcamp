@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ch.heigvd.amt.bootcamp.services.dao.PeopleWriteManagerLocal;
 import ch.heigvd.amt.bootcamp.service.GenerateRandomPeopleLocal;
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDeleteManagerLocal;
 import java.util.List;
 
 /**
@@ -20,6 +21,8 @@ public class ConfigurationServlet extends HttpServlet {
   PeopleWriteManagerLocal peopleWriteManager;
   @EJB
   GenerateRandomPeopleLocal generateRandomPeople;
+  @EJB
+  PeopleDeleteManagerLocal peopleDeleteManager;
 
   
   
@@ -42,11 +45,13 @@ public class ConfigurationServlet extends HttpServlet {
             */
             long quantity = Integer.parseInt(request.getParameter("quantity"));
 
-            //we first clear the list of random people
+            //we delete all people in DB
+            peopleDeleteManager.deletePeople();
+            //we clear the local list of random people
             generateRandomPeople.destroyPeople();
-            //we generate random people
+            //we generate local random people
             generateRandomPeople.buildPeople(quantity);
-            //we get the list of random people
+            //we get the list of local random people
             List<Person> peopleToWrite = generateRandomPeople.getPeople();
             //we write the people in DB
             peopleWriteManager.writePeople(peopleToWrite);

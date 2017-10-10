@@ -10,13 +10,14 @@
       <tr>
          <td style="width:80%"> ${people.firstName}, ${people.lastName}, ${people.street}</td>
          <td style="width:10%">
-            <form action="">
+            <form >
                <input type="submit" value = "edit">
             </form>
          </td>
          <td style="width:10%">
-            <form action="">
-               <input type="submit" value = "delete">
+            <form method="POST" action="pages/delete">
+               <input type="submit" name="delete" value = "delete">
+               <input type="number" name="id" value = "${people.id}" style="display:none;">
             </form>
          </td>
       </tr>

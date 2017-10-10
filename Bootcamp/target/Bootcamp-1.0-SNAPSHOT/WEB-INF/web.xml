@@ -21,8 +21,8 @@
         <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.ManageServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreatePersonServlet</servlet-name>
-        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.CreatePersonServlet</servlet-class>
+        <servlet-name>DeletePersonServlet</servlet-name>
+        <servlet-class>ch.heigvd.amt.bootcamp.web.controllers.DeletePersonServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
@@ -41,8 +41,8 @@
         <url-pattern>/pages/manage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CreatePersonServlet</servlet-name>
-        <url-pattern>/pages/create</url-pattern>
+        <servlet-name>DeletePersonServlet</servlet-name>
+        <url-pattern>/pages/delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>

@@ -23,16 +23,6 @@ public class PeopleWriteManager implements PeopleWriteManagerLocal {
   @Override
   public void writePeople(List<Person> peopleToWrite) {
      
-     //we first delete all the table
-     try {
-          try (Connection connection = dataSource.getConnection();PreparedStatement pstmt = connection.prepareStatement("DELETE FROM people");) {
-            pstmt.executeUpdate();
-            pstmt.close();
-           }
-         } catch (SQLException ex) {
-           Logger.getLogger(PeopleWriteManager.class.getName()).log(Level.SEVERE, null, ex);
-         }
-     
      //then we write new random people inside
      for(int i=0; i < peopleToWrite.size(); i++) { 
         

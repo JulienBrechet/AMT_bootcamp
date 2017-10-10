@@ -1,0 +1,92 @@
+package ch.heigvd.amt.bootcamp.web.controllers;
+
+
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDeleteManagerLocal;
+import java.io.IOException;
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+public class DeletePersonServlet extends HttpServlet {
+   
+  @EJB
+  PeopleDeleteManagerLocal peopleDeleteManager;
+
+  /**
+   * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+   * methods.
+   *
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    
+
+    try{
+         //we get the id of the person to delete: the hidden input value of the form contains the id of the person to delete
+         long boutonId = Integer.parseInt(request.getParameter("id"));
+         //we delete this person in DB
+         peopleDeleteManager.deletePerson(boutonId);
+         //redirect to ManageServelet
+         String targetUrl = "/pages/manage";
+         targetUrl = request.getContextPath() + targetUrl;
+         response.sendRedirect(targetUrl);
+         
+         
+         
+    }catch(NumberFormatException ex){
+       
+       String targetUrl = (String) request.getAttribute("targetUrl");
+       targetUrl = "/pages/home";
+       targetUrl = request.getContextPath() + targetUrl;
+       response.sendRedirect(targetUrl);
+    }
+
+  }
+
+  // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+  /**
+   * Handles the HTTP <code>GET</code> method.
+   *
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    processRequest(request, response);
+  }
+
+  /**
+   * Handles the HTTP <code>POST</code> method.
+   *
+   * @param request servlet request
+   * @param response servlet response
+   * @throws ServletException if a servlet-specific error occurs
+   * @throws IOException if an I/O error occurs
+   */
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+    processRequest(request, response);
+  }
+
+  /**
+   * Returns a short description of the servlet.
+   *
+   * @return a String containing servlet description
+   */
+  @Override
+  public String getServletInfo() {
+    return "Short description";
+  }// </editor-fold>
+
+}
