@@ -5,8 +5,8 @@
 
 
 <form method="POST" action="pages/configuration">
-  Quantity (between 1 and 100):
-  <input type="number" name="quantity" min="1" max="100" required>
+  Quantity (between 1 and 1000):
+  <input type="number" name="quantity" min="1" max="1000" required>
   <input type="submit" value = "build database">
 </form>
 

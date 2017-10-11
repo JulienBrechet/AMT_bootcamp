@@ -21,9 +21,10 @@ public class pageSplitter implements pageSplitterLocal{
       
       List<Person> pagePeople = new ArrayList<>();
       
-      if(!allPeople.isEmpty()){
-         int startIndex = (pageIndex*pageSize)+1;
-         int endIndex = startIndex + pageSize - 1;
+       if(!allPeople.isEmpty()){
+         int startIndex = pageIndex*pageSize;
+         int possibleEndIndex = startIndex + pageSize - 1;
+         int endIndex = Integer.min(possibleEndIndex, allPeople.size()-1);
 
          for(int i = startIndex; i <= endIndex; ++i){
             pagePeople.add(allPeople.get(i));
