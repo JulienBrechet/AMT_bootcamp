@@ -33,12 +33,6 @@ public class DeletePersonServlet extends HttpServlet {
          //we delete this person in DB
          peopleDAO.deletePerson(boutonId);
          
-         
-         /*
-         //redirect to ManageServelet
-         String targetUrl = "/pages/manage";
-         targetUrl = request.getContextPath() + targetUrl;
-         response.sendRedirect(targetUrl);*/
          int pageSize = 0;
          try {
            pageSize = Integer.parseInt(request.getParameter("pageSize"));

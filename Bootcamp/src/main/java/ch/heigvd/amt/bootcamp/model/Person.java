@@ -18,11 +18,11 @@ public class Person {
       this.street = street;
    }
 
-   public String getfirstName() {
+   public String getFirstName() {
       return firstName;
    }
 
-   public String getlastName() {
+   public String getLastName() {
       return lastName;
    }
 

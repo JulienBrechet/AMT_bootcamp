@@ -49,16 +49,6 @@ public class ManageServlet extends HttpServlet {
 
     List<Person> allPeople = peopleDAO.getPeople();
     List<Person> people = pageSplitter.getPagePeople(allPeople, pageSize, pageIndex);
-    /*List<Person> people = new ArrayList<>();     
-   if(!allPeople.isEmpty()){
-      int startIndex = pageIndex*pageSize;
-      int possibleEndIndex = startIndex + pageSize - 1;
-      int endIndex = Integer.min(possibleEndIndex, allPeople.size()-1);
-
-      for(int i = startIndex; i <= endIndex; ++i){
-         people.add(allPeople.get(i));
-      }
-   }*/
         
     long numberOfPages = (allPeople.size() + pageSize - 1) / pageSize;
     
