@@ -1,7 +1,6 @@
 package ch.heigvd.amt.bootcamp.web.controllers;
 
-
-import ch.heigvd.amt.bootcamp.services.dao.PeopleDeleteManagerLocal;
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDAOLocal;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DeletePersonServlet extends HttpServlet {
    
   @EJB
-  PeopleDeleteManagerLocal peopleDeleteManager;
+  PeopleDAOLocal peopleDAO;
 
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +31,7 @@ public class DeletePersonServlet extends HttpServlet {
          //we get the id of the person to delete: the hidden input value of the form contains the id of the person to delete
          long boutonId = Integer.parseInt(request.getParameter("id"));
          //we delete this person in DB
-         peopleDeleteManager.deletePerson(boutonId);
+         peopleDAO.deletePerson(boutonId);
          //redirect to ManageServelet
          String targetUrl = "/pages/manage";
          targetUrl = request.getContextPath() + targetUrl;

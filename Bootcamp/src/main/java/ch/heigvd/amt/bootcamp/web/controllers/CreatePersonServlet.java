@@ -3,7 +3,7 @@ package ch.heigvd.amt.bootcamp.web.controllers;
 
 
 import ch.heigvd.amt.bootcamp.model.Person;
-import ch.heigvd.amt.bootcamp.services.dao.PeopleWriteManagerLocal;
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDAOLocal;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CreatePersonServlet extends HttpServlet {
    
   @EJB
-  PeopleWriteManagerLocal peopleWriteManager;
+  PeopleDAOLocal peopleDAO;
 
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,7 +49,7 @@ public class CreatePersonServlet extends HttpServlet {
          peopleToWrite.add(newPerson);
          
          //we write it in the DB
-         peopleWriteManager.writePeople(peopleToWrite);
+         peopleDAO.writePeople(peopleToWrite);
          
          //redirect to ManageServelet
          String targetUrl = "/pages/manage";

@@ -1,7 +1,7 @@
 package ch.heigvd.amt.bootcamp.web.controllers;
 
 import ch.heigvd.amt.bootcamp.model.Person;
-import ch.heigvd.amt.bootcamp.services.dao.PeopleEditManagerLocal;
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDAOLocal;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class EditPersonServlet extends HttpServlet {
    
    @EJB
-   PeopleEditManagerLocal peopleEditManager;
+   PeopleDAOLocal peopleDAO;
   
   
    /**
@@ -56,7 +56,7 @@ public class EditPersonServlet extends HttpServlet {
          else{
             
             //we update the DB
-            peopleEditManager.editPerson(editPerson);
+            peopleDAO.editPerson(editPerson);
             //redirect to ManageServelet
             String targetUrl = "/pages/manage";
             targetUrl = request.getContextPath() + targetUrl;

@@ -7,9 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ch.heigvd.amt.bootcamp.services.dao.PeopleWriteManagerLocal;
 import ch.heigvd.amt.bootcamp.service.GenerateRandomPeopleLocal;
-import ch.heigvd.amt.bootcamp.services.dao.PeopleDeleteManagerLocal;
+import ch.heigvd.amt.bootcamp.services.dao.PeopleDAOLocal;
 import java.util.List;
 
 /**
@@ -18,11 +17,10 @@ import java.util.List;
 public class ConfigurationServlet extends HttpServlet {
 
   @EJB
-  PeopleWriteManagerLocal peopleWriteManager;
+  PeopleDAOLocal peopleDAO;
   @EJB
   GenerateRandomPeopleLocal generateRandomPeople;
-  @EJB
-  PeopleDeleteManagerLocal peopleDeleteManager;
+
 
   
   
@@ -46,7 +44,7 @@ public class ConfigurationServlet extends HttpServlet {
             long quantity = Integer.parseInt(request.getParameter("quantity"));
 
             //we delete all people in DB
-            peopleDeleteManager.deletePeople();
+            peopleDAO.deletePeople();
             //we clear the local list of random people
             generateRandomPeople.destroyPeople();
             //we generate local random people
@@ -54,7 +52,7 @@ public class ConfigurationServlet extends HttpServlet {
             //we get the list of local random people
             List<Person> peopleToWrite = generateRandomPeople.getPeople();
             //we write the people in DB
-            peopleWriteManager.writePeople(peopleToWrite);
+            peopleDAO.writePeople(peopleToWrite);
             
             //redirect to ManageServelet
             String targetUrl = "/pages/manage";
