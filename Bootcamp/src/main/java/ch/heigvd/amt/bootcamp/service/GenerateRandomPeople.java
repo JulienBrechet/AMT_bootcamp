@@ -16,7 +16,7 @@ import com.github.javafaker.Faker;
 
 @Singleton
 public class GenerateRandomPeople implements GenerateRandomPeopleLocal{
-    private final List<Person> catalog = new LinkedList<>();
+    private List<Person> catalog = new LinkedList<>();
 
   /**
    *generate random people

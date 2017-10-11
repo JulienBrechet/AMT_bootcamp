@@ -1,8 +1,11 @@
 <%@include file="includes/header.jsp" %>
 
 <h2>Show Database</h2>
-
-
+<br><br>
+<form method="POST" action="pages/create">
+   <input type="submit" name="create" value = "create person">
+</form>
+<br><br>
 <ul>
 <c:forEach items="${people}" var="people">
   <li> 
