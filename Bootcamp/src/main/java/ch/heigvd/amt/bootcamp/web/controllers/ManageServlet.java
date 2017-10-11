@@ -33,17 +33,7 @@ public class ManageServlet extends HttpServlet {
    */
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    
-    //Object model = peopleDAO.getPeople();
-    
-    //request.setAttribute("people", model);
-    
-    
-    
-    
-    
-    
-    int companyId = 1;
+
     int pageSize = 0;
     try {
       pageSize = Integer.parseInt(request.getParameter("peoplePageSize"));
@@ -57,7 +47,6 @@ public class ManageServlet extends HttpServlet {
       pageIndex = 0;
     }
 
-    //List<Person> people = peopleDAO.findPeoplePageForCompanyId(companyId, pageSize, pageIndex);
     List<Person> allPeople = peopleDAO.getPeople();
     List<Person> people = pageSplitter.getPagePeople(allPeople, pageSize, pageIndex);
     /*List<Person> people = new ArrayList<>();     
@@ -71,18 +60,18 @@ public class ManageServlet extends HttpServlet {
       }
    }*/
         
-    //long numberOfPages = (peopleDAO.countPeople(companyId) + pageSize - 1) / pageSize;
     long numberOfPages = (allPeople.size() + pageSize - 1) / pageSize;
     
-    
-    request.setAttribute("pageTitle", "Company Details");
-    request.setAttribute(("people"), people);
-    
-    request.setAttribute("peopleFirstPageLink", "/pages/manage?id=" + companyId +"&peoplePageSize=" + pageSize + "&peoplePageIndex=0");
-    request.setAttribute("peoplePreviousPageLink", "/pages/manage?id=" + companyId + "&peoplePageSize=" + pageSize + "&peoplePageIndex=" + Math.max(0, pageIndex - 1));
-    request.setAttribute("peopleNextPageLink", "/pages/manage?id=" + companyId +"&peoplePageSize=" + pageSize + "&peoplePageIndex=" + Math.min(pageIndex + 1, numberOfPages - 1));
-    request.setAttribute("peopleLastPageLink", "/pages/manage?id=" + companyId +"&peoplePageSize=" + pageSize + "&peoplePageIndex=" + (numberOfPages-1));
+    request.setAttribute(("people"), people);   
+    request.setAttribute("peopleFirstPageLink", "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex=0");
+    request.setAttribute("peoplePreviousPageLink", "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex=" + Math.max(0, pageIndex - 1));
+    request.setAttribute("peopleNextPageLink", "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex=" + Math.min(pageIndex + 1, numberOfPages - 1));
+    request.setAttribute("peopleLastPageLink", "/pages/manage?&peoplePageSize=" + pageSize + "&peoplePageIndex=" + (numberOfPages-1));
     request.setAttribute("peoplePageCount", numberOfPages);
+    request.setAttribute("personDeleteLink", "pages/delete");
+    request.setAttribute("personEditLink", "pages/edit");
+    request.setAttribute("pageSize", pageSize);
+    request.setAttribute("pageIndex", pageIndex);
     
     
     

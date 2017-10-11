@@ -14,8 +14,4 @@ public interface PeopleDAOLocal {
   public void editPerson(Person personToEdit);
   public void deletePeople(); 
   public void deletePerson(long id);
-  
-  
-  public List<Person> findPeoplePageForCompanyId(long companyId, int pageSize, int pageIndex);
-  public long countPeople(int companyId);
 }

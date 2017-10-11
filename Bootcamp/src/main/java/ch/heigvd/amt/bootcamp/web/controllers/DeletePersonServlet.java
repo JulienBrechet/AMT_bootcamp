@@ -32,10 +32,30 @@ public class DeletePersonServlet extends HttpServlet {
          long boutonId = Integer.parseInt(request.getParameter("id"));
          //we delete this person in DB
          peopleDAO.deletePerson(boutonId);
+         
+         
+         /*
          //redirect to ManageServelet
          String targetUrl = "/pages/manage";
          targetUrl = request.getContextPath() + targetUrl;
+         response.sendRedirect(targetUrl);*/
+         int pageSize = 0;
+         try {
+           pageSize = Integer.parseInt(request.getParameter("pageSize"));
+         } catch (NumberFormatException e) {
+           pageSize = 10;
+         }
+         int pageIndex = 0;
+         try {
+           pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
+         } catch (NumberFormatException e) {
+           pageIndex = 0;
+         }  
+         //redirect to ManageServelet
+         String targetUrl = "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex="+pageIndex;
+         targetUrl = request.getContextPath() + targetUrl;
          response.sendRedirect(targetUrl);
+
          
          
          

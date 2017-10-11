@@ -7,26 +7,16 @@
 </form>
 <br><br>
 <ul>
-<c:forEach items="${people}" var="people">
+<c:forEach items="${people}" var="person">
   <li> 
    <table style="width:100%">
       <tr>
-         <td style="width:80%"> ${people.firstName}, ${people.lastName}, ${people.street}</td>
+         <td style="width:80%"> ${person.firstName}, ${person.lastName}, ${person.street}</td>
          <td style="width:10%">
-            <form method="POST" action="pages/edit">
-               <input type="submit" name="edit" value = "edit">
-               <input type="number" name="code" value = "1" style="display:none;">
-               <input type="number" name="id" value = "${people.id}" style="display:none;">
-               <input type="text" name="firstName" value = "${people.firstName}" style="display:none;">
-               <input type="text" name="lastName" value = "${people.lastName}" style="display:none;">
-               <input type="text" name="street" value = "${people.street}" style="display:none;">
-            </form>
+            <a href="<c:url value="${personEditLink}"/>?code=1&id=${person.id}&firstName=${person.firstName}&lastName=${person.lastName}&street=${person.street}">edit</a>
          </td>
          <td style="width:10%">
-            <form method="POST" action="pages/delete">
-               <input type="submit" name="delete" value = "delete">
-               <input type="number" name="id" value = "${people.id}" style="display:none;">
-            </form>
+            <a href="<c:url value="${personDeleteLink}"/>?id=${person.id}&pageIndex=${pageIndex}&pageSize=${pageSize}">delete</a>
          </td>
       </tr>
    </table>        
