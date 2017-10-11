@@ -1,5 +1,6 @@
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\services\dao\PeopleDAO.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\controllers\ConfigurationServlet.java
+C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\service\pageSplitterLocal.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\controllers\HomeServlet.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\controllers\EditPersonServlet.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\model\Person.java
@@ -9,6 +10,7 @@ C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\controllers\AuthenticationServlet.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\service\GenerateRandomPeople.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\service\GenerateRandomPeopleLocal.java
+C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\service\pageSplitter.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\services\dao\PeopleDAOLocal.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\filters\SecurityFilter.java
 C:\Users\Adrien\Desktop\AMT\projet 1\amt_bootcamp\amt_bootcamp\Bootcamp\src\main\java\ch\heigvd\amt\bootcamp\web\controllers\ManageServlet.java

@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 
@@ -21,8 +23,10 @@ public class PeopleDAO implements PeopleDAOLocal {
   
  @Resource(lookup = "jdbc/random_people")
   private DataSource dataSource;
-
  
+ @PersistenceContext
+  EntityManager em;
+
  
  
   @Override
@@ -123,6 +127,21 @@ public class PeopleDAO implements PeopleDAOLocal {
            }
   }
   
+  
+  
+  
+  
+   @Override
+  public List<Person> findPeoplePageForCompanyId(long companyId, int pageSize, int pageIndex) {
+    List<Person> result;
+    result = em.createNamedQuery("Company.findPeoplePageForCompanyId").setParameter("id", companyId).setMaxResults(pageSize).setFirstResult(pageIndex * pageSize).getResultList();
+    return result;
+  }
+  
+  @Override
+  public long countPeople(int companyId) {
+    return (long) em.createNamedQuery("Company.countPeopleForCompanyId").setParameter("id", companyId).getSingleResult();
+  }
   
   
 }
