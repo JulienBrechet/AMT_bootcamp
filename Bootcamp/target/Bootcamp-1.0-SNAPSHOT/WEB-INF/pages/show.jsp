@@ -2,7 +2,7 @@
 
 <h2>Show Database</h2>
 <br><br>
-<a href="<c:url value="${personCreateLink}"/>?pageIndex=${pageIndex}&pageSize=${pageSize}">add</a>
+<a href="<c:url value="${personCreateLink}"/>?code=1&pageIndex=${pageIndex}&pageSize=${pageSize}&peoplePageCount=${peoplePageCount}">add</a>
 <br><br>
 <ul>
 <c:forEach items="${people}" var="person">

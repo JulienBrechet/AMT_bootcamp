@@ -32,23 +32,6 @@ public class CreatePersonServlet extends HttpServlet {
     throws ServletException, IOException {
     
 
-
-      int pageSize = 0;
-      try {
-          pageSize = Integer.parseInt(request.getParameter("pageSize"));
-      } catch (NumberFormatException e) {
-          pageSize = 10;
-      }
-      int pageIndex = 0;
-      try {
-          pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
-      } catch (NumberFormatException e) {
-          pageIndex = 0;
-      }
-     
-     
-     
-     
      
     try{
          //we check if we arrived here after the creation of the person
@@ -60,29 +43,58 @@ public class CreatePersonServlet extends HttpServlet {
          String lastName = request.getParameter("lastName");
          String street = request.getParameter("street"); 
          
+         
+         int pageSize = 0;
+         try {
+             pageSize = Integer.parseInt(request.getParameter("pageSize"));
+         } catch (NumberFormatException e) {
+             pageSize = 10;
+         }
+         int pageIndex = 0;
+         try {
+             pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
+         } catch (NumberFormatException e) {
+             pageIndex = 0;
+         }
+         int numberOfPages = 0;
+         try {
+             numberOfPages = Integer.parseInt(request.getParameter("peoplePageCount"));
+         } catch (NumberFormatException e) {
+             numberOfPages = 0;
+         }
+     
+         
          //we build the new person
          Person newPerson = new Person(0, firstName, lastName, street);
          //we put it in the list of people to write in DB
          List<Person> peopleToWrite = new LinkedList<>();
          peopleToWrite.add(newPerson);
          
-         //we write it in the DB
-         peopleDAO.writePeople(peopleToWrite);
-         
-         //redirect to ManageServelet
-         String targetUrl = "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex="+pageIndex;
-         targetUrl = request.getContextPath() + targetUrl;
-         response.sendRedirect(targetUrl);
-         
-         
+         //if we have to redirect the user to the create form
+         if(code==1){
+            request.setAttribute("peoplePageCount", numberOfPages);
+            request.setAttribute("createLink", "pages/create");
+            request.setAttribute("pageIndex", pageIndex);
+            request.setAttribute("pageSize", pageSize);
+            request.getRequestDispatcher("/WEB-INF/pages/create.jsp").forward(request, response);
+         }
+         //we have to write in DB
+         else{
+            //we write it in the DB
+            peopleDAO.writePeople(peopleToWrite);
+
+            //redirect to ManageServelet
+            String targetUrl = "/pages/manage?&peoplePageSize=" + pageSize + "&peoplePageIndex=" + (numberOfPages-1);
+            targetUrl = request.getContextPath() + targetUrl;
+            response.sendRedirect(targetUrl);
+         }     
          
     }catch(NumberFormatException ex){
        
-         
-         request.setAttribute("createLink", "pages/create");
-         request.setAttribute("pageIndex", pageIndex);
-         request.setAttribute("pageSize", pageSize);
-         request.getRequestDispatcher("/WEB-INF/pages/create.jsp").forward(request, response);
+         //redirect to HomeServelet
+         String targetUrl = "/pages/home";
+         targetUrl = request.getContextPath() + targetUrl;
+         response.sendRedirect(targetUrl);
     }
 
   }

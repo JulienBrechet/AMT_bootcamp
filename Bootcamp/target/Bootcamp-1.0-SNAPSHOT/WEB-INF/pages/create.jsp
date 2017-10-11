@@ -4,7 +4,7 @@
 
 
 
-<form method="POST" action="<c:url value="${createLink}"/>?code=1&pageIndex=${pageIndex}&pageSize=${pageSize}">
+<form method="POST" action="<c:url value="${createLink}"/>?code=0&peoplePageCount=${peoplePageCount}&pageIndex=${pageIndex}&pageSize=${pageSize}">
   First Name:<br>
   <input type="text" name="firstName" required>
   <br>

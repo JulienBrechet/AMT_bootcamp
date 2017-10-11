@@ -78,13 +78,6 @@ public class EditPersonServlet extends HttpServlet {
             String targetUrl = "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex="+pageIndex;
             targetUrl = request.getContextPath() + targetUrl;
             response.sendRedirect(targetUrl);
-            
-            
-            /*
-            //redirect to ManageServelet
-            String targetUrl = "/pages/manage";
-            targetUrl = request.getContextPath() + targetUrl;
-            response.sendRedirect(targetUrl);*/
          }
 
       }catch(NumberFormatException ex){
