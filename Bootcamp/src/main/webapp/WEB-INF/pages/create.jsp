@@ -4,8 +4,7 @@
 
 
 
-<form method="POST" action="pages/create">
-  <input type="number" name="code" value = "1" style="display:none;">
+<form method="POST" action="<c:url value="${createLink}"/>?code=1&pageIndex=${pageIndex}&pageSize=${pageSize}">
   First Name:<br>
   <input type="text" name="firstName" required>
   <br>

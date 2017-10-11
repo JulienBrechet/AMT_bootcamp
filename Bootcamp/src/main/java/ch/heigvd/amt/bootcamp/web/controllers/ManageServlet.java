@@ -60,6 +60,7 @@ public class ManageServlet extends HttpServlet {
     request.setAttribute("peoplePageCount", numberOfPages);
     request.setAttribute("personDeleteLink", "pages/delete");
     request.setAttribute("personEditLink", "pages/edit");
+    request.setAttribute("personCreateLink", "pages/create");
     request.setAttribute("pageSize", pageSize);
     request.setAttribute("pageIndex", pageIndex);
     

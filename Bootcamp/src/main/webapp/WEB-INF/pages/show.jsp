@@ -2,9 +2,7 @@
 
 <h2>Show Database</h2>
 <br><br>
-<form method="POST" action="pages/create">
-   <input type="submit" name="create" value = "create person">
-</form>
+<a href="<c:url value="${personCreateLink}"/>?pageIndex=${pageIndex}&pageSize=${pageSize}">add</a>
 <br><br>
 <ul>
 <c:forEach items="${people}" var="person">

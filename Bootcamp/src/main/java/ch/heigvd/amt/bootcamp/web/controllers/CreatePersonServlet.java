@@ -32,6 +32,24 @@ public class CreatePersonServlet extends HttpServlet {
     throws ServletException, IOException {
     
 
+
+      int pageSize = 0;
+      try {
+          pageSize = Integer.parseInt(request.getParameter("pageSize"));
+      } catch (NumberFormatException e) {
+          pageSize = 10;
+      }
+      int pageIndex = 0;
+      try {
+          pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
+      } catch (NumberFormatException e) {
+          pageIndex = 0;
+      }
+     
+     
+     
+     
+     
     try{
          //we check if we arrived here after the creation of the person
          //otherwise there is an exception nd we catch it to go create this person
@@ -40,7 +58,7 @@ public class CreatePersonServlet extends HttpServlet {
          //we get the new values to create
          String firstName = request.getParameter("firstName");
          String lastName = request.getParameter("lastName");
-         String street = request.getParameter("street");
+         String street = request.getParameter("street"); 
          
          //we build the new person
          Person newPerson = new Person(0, firstName, lastName, street);
@@ -52,7 +70,7 @@ public class CreatePersonServlet extends HttpServlet {
          peopleDAO.writePeople(peopleToWrite);
          
          //redirect to ManageServelet
-         String targetUrl = "/pages/manage";
+         String targetUrl = "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex="+pageIndex;
          targetUrl = request.getContextPath() + targetUrl;
          response.sendRedirect(targetUrl);
          
@@ -60,7 +78,11 @@ public class CreatePersonServlet extends HttpServlet {
          
     }catch(NumberFormatException ex){
        
-        request.getRequestDispatcher("/WEB-INF/pages/create.jsp").forward(request, response);
+         
+         request.setAttribute("createLink", "pages/create");
+         request.setAttribute("pageIndex", pageIndex);
+         request.setAttribute("pageSize", pageSize);
+         request.getRequestDispatcher("/WEB-INF/pages/create.jsp").forward(request, response);
     }
 
   }
