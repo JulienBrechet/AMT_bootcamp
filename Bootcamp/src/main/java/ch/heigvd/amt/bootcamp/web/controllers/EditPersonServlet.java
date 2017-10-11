@@ -46,9 +46,25 @@ public class EditPersonServlet extends HttpServlet {
          //we build a new Person
          Person editPerson = new Person(id, firstName, lastName, street);
          
+         
+         int pageSize = 0;
+         try {
+               pageSize = Integer.parseInt(request.getParameter("pageSize"));
+         } catch (NumberFormatException e) {
+               pageSize = 10;
+         }
+         int pageIndex = 0;
+         try {
+               pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
+         } catch (NumberFormatException e) {
+               pageIndex = 0;
+         } 
+         
          //if we have to redirect the user to the edit form
          if(code == 1){
-            
+            request.setAttribute("applyLink", "pages/edit");
+            request.setAttribute("pageIndex", pageIndex);
+            request.setAttribute("pageSize", pageSize);
             request.setAttribute("person", editPerson);
             request.getRequestDispatcher("/WEB-INF/pages/edit.jsp").forward(request, response);
          }
@@ -57,10 +73,18 @@ public class EditPersonServlet extends HttpServlet {
             
             //we update the DB
             peopleDAO.editPerson(editPerson);
+         
+            //redirect to ManageServelet
+            String targetUrl = "/pages/manage?peoplePageSize=" + pageSize + "&peoplePageIndex="+pageIndex;
+            targetUrl = request.getContextPath() + targetUrl;
+            response.sendRedirect(targetUrl);
+            
+            
+            /*
             //redirect to ManageServelet
             String targetUrl = "/pages/manage";
             targetUrl = request.getContextPath() + targetUrl;
-            response.sendRedirect(targetUrl);
+            response.sendRedirect(targetUrl);*/
          }
 
       }catch(NumberFormatException ex){

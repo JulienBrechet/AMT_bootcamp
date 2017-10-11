@@ -13,7 +13,7 @@
       <tr>
          <td style="width:80%"> ${person.firstName}, ${person.lastName}, ${person.street}</td>
          <td style="width:10%">
-            <a href="<c:url value="${personEditLink}"/>?code=1&id=${person.id}&firstName=${person.firstName}&lastName=${person.lastName}&street=${person.street}">edit</a>
+            <a href="<c:url value="${personEditLink}"/>?code=1&id=${person.id}&firstName=${person.firstName}&lastName=${person.lastName}&street=${person.street}&pageIndex=${pageIndex}&pageSize=${pageSize}">edit</a>
          </td>
          <td style="width:10%">
             <a href="<c:url value="${personDeleteLink}"/>?id=${person.id}&pageIndex=${pageIndex}&pageSize=${pageSize}">delete</a>

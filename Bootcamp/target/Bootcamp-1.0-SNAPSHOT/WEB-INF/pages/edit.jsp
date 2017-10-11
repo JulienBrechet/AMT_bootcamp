@@ -4,8 +4,7 @@
 
 
 
-<form method="POST" action="pages/edit">
-   <input type="number" name="code" value = "0" style="display:none;">
+<form method="POST" action="<c:url value="${applyLink}"/>?code=0&id=${person.id}&pageIndex=${pageIndex}&pageSize=${pageSize}">
   First Name:<br>
   <input type="text" name="firstName" value="${person.firstName}" required>
   <br>
@@ -15,7 +14,6 @@
   Street:<br>
   <input type="text" name="street" value="${person.street}" required>
   <br><br>
-  <input type="number" name="id" value = "${person.id}" style="display:none;">
   <input type="submit" value = "apply changes">
 </form>
 
