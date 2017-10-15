@@ -1,6 +1,8 @@
 package ch.heigvd.amt.bootcamp.web.controllers;
 
+import ch.heigvd.amt.bootcamp.services.dao.LoginDAOLocal;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Olivier Liechti (olivier.liechti@heig-vd.ch)
  */
 public class AuthenticationServlet extends HttpServlet {
+   
+   @EJB
+   LoginDAOLocal loginDAO;
 
   /**
    * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,7 +59,7 @@ public class AuthenticationServlet extends HttpServlet {
      (for GET requests) or in the body (for POST requests).
      */
     String action = request.getParameter("action");
-    String email = request.getParameter("email");
+    String login = request.getParameter("login");
     String password = request.getParameter("password");
 
     /*
@@ -73,8 +78,14 @@ public class AuthenticationServlet extends HttpServlet {
     targetUrl = request.getContextPath() + targetUrl;
 
     if ("login".equals(action)) {
-      request.getSession().setAttribute("principal", email);
-      response.sendRedirect(targetUrl);
+      request.getSession().setAttribute("principal", login);
+      if(loginDAO.authenticate(login, password)){
+         response.sendRedirect(targetUrl);
+      }
+      else{
+         request.getSession().invalidate();
+         response.sendRedirect(request.getContextPath());
+      }    
     } else if ("logout".equals(action)) {
       request.getSession().invalidate();
       response.sendRedirect(request.getContextPath());

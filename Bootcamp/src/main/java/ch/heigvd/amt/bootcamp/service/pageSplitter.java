@@ -24,7 +24,7 @@ public class pageSplitter implements pageSplitterLocal{
        if(!allPeople.isEmpty()){
          int startIndex = pageIndex*pageSize;
          int possibleEndIndex = startIndex + pageSize - 1;
-         int endIndex = Integer.min(possibleEndIndex, allPeople.size()-1);
+         int endIndex = Math.min(possibleEndIndex, allPeople.size()-1);
 
          for(int i = startIndex; i <= endIndex; ++i){
             pagePeople.add(allPeople.get(i));

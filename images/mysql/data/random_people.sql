@@ -17,3 +17,23 @@ CREATE TABLE people (
   street VARCHAR(45) NOT NULL,
   PRIMARY KEY  (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `login`
+--
+CREATE TABLE login (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_login VARCHAR(45) NOT NULL,
+  user_pwd VARCHAR(45) NOT NULL,
+  PRIMARY KEY  (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Dumping data for table login
+--
+
+SET AUTOCOMMIT=0;
+INSERT INTO login VALUES (1,'admin','admin');
+COMMIT;
